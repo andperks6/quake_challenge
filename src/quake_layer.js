@@ -32,59 +32,26 @@ const renderer = {
     type: "simple",
     field: "mag",
     symbol: {
-        // symbol type required for rendering point geometries
-        type: "point-3d", // autocasts as new PointSymbol3D()
-        symbolLayers: [
-            {
-                type: "object",
-                resource: { primitive: "cone" }, // renders points as cones
-                width: 50000
-            }
-        ]
+        type: "simple-marker",
+        color: "red",
+        outline: {
+            color: "white"
+        }
     },
     visualVariables: [
-        // {
-        //     type: "color",
-        //     field: "PRESSURE", // field containing data for atmospheric pressure
-        //     stops: [{ value: 950, color: "red" }, { value: 1020, color: "blue" }]
-        // },
         {
             type: "size",
             field: "mag",
-            stops: [{ value: 2, size: 60000 }, { value: 9, size: 500000 }],
-            axis: "height"
-        },
-        {
-            type: "size",
-            axis: "width-and-depth",
-            useSymbolValue: true // uses the width value defined in the symbol layer (50,000)
+            stops: [
+                {
+                    value: 2,
+                    size: "5px"
+                },
+                {
+                    value: 9,
+                    size: "40px"
+                }
+            ]
         }
     ]
 };
-// const renderer = {
-//     type: "simple",
-//     field: "mag",
-//     symbol: {
-//         type: "simple-marker",
-//         color: "red",
-//         outline: {
-//             color: "white"
-//         }
-//     },
-//     visualVariables: [
-//         {
-//             type: "size",
-//             field: "mag",
-//             stops: [
-//                 {
-//                     value: 2,
-//                     size: "5px"
-//                 },
-//                 {
-//                     value: 9,
-//                     size: "40px"
-//                 }
-//             ]
-//         }
-//     ]
-// };
